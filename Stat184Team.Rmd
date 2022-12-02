@@ -7,3 +7,12 @@ date: "2022-12-02"
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+```{r}
+###Scraping 
+#Scraping for Miami Dolphins data
+miamiDolphinsData <- read_html(
+x = "https://www.pro-football-reference.com/teams/mia/2022.htm"
+) %>%
+  html_elements(css = "table") %>%
+  html_table()
+```

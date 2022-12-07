@@ -44,3 +44,13 @@ ggplot(miamiDolphins) +
   theme_minimal()+
   labs(title = "Miami Dolphin's Losing Streak after Quarterback Tua Tagovailoa was Injured", caption = "Stats from the 2022-2023 season, up to week 12.\nWeek 11 was a bye week.", subtitle = "Tua Tagovailoa was injured with a concussion in week 4 and did not return until week 7.",  x = "Wins and Losses", y = "Weeks")
 ```
+```{r}
+# Changing offensive turnover values from characters to numbers
+miamiDolphins[[17]] <- as.numeric(as.character(miamiDolphins[[17]]))
+
+#making new data frame
+miamiDolphins <- bind_cols(miamiDolphins[[1]], miamiDolphins[[17]])
+
+miamiDolphins <- miamiDolphins
+colnames(miamiDolphins) <- c("Weeks", "Turnovers")
+```

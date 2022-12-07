@@ -54,3 +54,15 @@ miamiDolphins <- bind_cols(miamiDolphins[[1]], miamiDolphins[[17]])
 miamiDolphins <- miamiDolphins
 colnames(miamiDolphins) <- c("Weeks", "Turnovers")
 ```
+
+```{r}
+#making ggplot visualization
+ggplot(data = miamiDolphins,
+       mapping = aes(x = Weeks,
+                     y = Turnovers)) +
+  geom_point(size = 5) +
+  scale_x_continuous(breaks = seq(ceiling(min(1)), floor(max(12)), by = 1)) +
+  scale_y_continuous(breaks = seq(ceiling(min(1)), floor(max(3)), by = 1)) +
+  theme_minimal() +
+  labs(title = "Miami Dolphins Offensive Turnovers Week 1 - Week 12", caption = "Week 11 represents a bye week (no games)", subtitle = "Tua leaves with concussion in week 4 and an ankle injury during week 12", x = "Weeks", y = "Turnovers")
+```

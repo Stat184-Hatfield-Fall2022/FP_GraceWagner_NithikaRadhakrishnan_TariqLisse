@@ -17,4 +17,5 @@ x = "https://www.pro-football-reference.com/teams/mia/2022.htm"
   html_table()
   
 #Need the second list for the data we want
+miamiDolphins <- miamiDolphinsData[[2]]
 ```

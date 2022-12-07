@@ -8,14 +8,39 @@ date: "2022-12-02"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 ```{r}
-###Scraping 
-#Scraping for Miami Dolphins data
+#load packages
+library(dplyr)
+library(rvest)
+library(ggplot2)
+
+###Scraping
+#Scraping for Dolphins data
 miamiDolphinsData <- read_html(
 x = "https://www.pro-football-reference.com/teams/mia/2022.htm"
 ) %>%
   html_elements(css = "table") %>%
   html_table()
-  
-#Need the second list for the data we want
+
+#getting correct table from data 
 miamiDolphins <- miamiDolphinsData[[2]]
+#remove unwanted/problematic rows
+miamiDolphins <- miamiDolphins[-1,]
+miamiDolphins <- miamiDolphins[-11,]
+miamiDolphins <- miamiDolphins[-c(12:17),]
+
+
+#changing week values from characters to numbers
+miamiDolphins[[1]] <- as.numeric(as.character(miamiDolphins[[1]]))
+#making new data frame
+miamiDolphins <- bind_cols(miamiDolphins[[1]], miamiDolphins[[6]])
+miamiDolphins <- miamiDolphins
+colnames(miamiDolphins) <- c("Weeks", "Outcome")
+
+#making ggplot visualization
+ggplot(miamiDolphins) +
+  aes(x = Outcome, y = Weeks) +
+  geom_point(shape = "circle", size = 1.5, colour = "#112446") +
+  scale_y_continuous(breaks = seq(ceiling(min(1)), floor(max(12)), by = 1))+
+  theme_minimal()+
+  labs(title = "Miami Dolphin's Losing Streak after Quarterback Tua Tagovailoa was Injured", caption = "Stats from the 2022-2023 season, up to week 12.\nWeek 11 was a bye week.", subtitle = "Tua Tagovailoa was injured with a concussion in week 4 and did not return until week 7.",  x = "Wins and Losses", y = "Weeks")
 ```

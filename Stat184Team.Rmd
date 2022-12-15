@@ -6,7 +6,9 @@ output:
 date: "2022-12-02"
 ---
 
-# Relating the Absence of a Star Player to the Overall Teams Performance
+# How does the Acquisition of a New Player Affect the overall Teams Performance ?
+
+## Relating the Absence of a Star Player to the Overall Teams Performance
 
 "There is no "I" in team...I know, but there's an "M.E" in it..." The late and great Kobe Bryant once spoke these words to his teammate Shaquille O'neal when asked why he is not passing the ball to his teammates.This is no slander towards teammates who believe the game revolves solely around them and that the ball should always be in their hands in order to guarantee a win for the team. These are facts to show that a star players absence whether it is due to injuries or a trade, does have an affect on the overall teams performance. 
 
@@ -264,3 +266,12 @@ Many sports require a team of more than one player to operate together to achiev
 
 The team sports serve to show the effects of collaboration in the world and that when players from different backgrounds, cultures and ideologies come together with one goal in mind, they can be winners.
 
+## Sources Used
+
+https://www.pro-football-reference.com/teams/mia/2022.htm - Miami Dolphins Data which gave us information on the injury report on players and team statistical information regarding each game for each week.
+
+https://www.espn.com/nfl/team/stats/_/name/mia/miami-dolphins - Another source regarding the Miami Dolphins statistical information for the overall team performance and the performance of each player according to their position. We focused on the three Quarterbacks in their lineup.
+
+https://www.landofbasketball.com/results_by_team/2003_2004_suns.htm - One of the few sources that was able to give win and loss information dating back to the Phoenix Suns franchise in 2003-04.
+
+https://www.landofbasketball.com/results_by_team/2004_2005_suns.htm - Another source for the Phoenix Suns team in the 2004-05 season. This gave us the specific wins and losses as well as the win streak and losing streak of the team.

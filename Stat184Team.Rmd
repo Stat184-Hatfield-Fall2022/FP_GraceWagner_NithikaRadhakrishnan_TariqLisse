@@ -166,3 +166,101 @@ Tua Tagovailoa came to Miami as a number 5 draft pick. He came from the universi
 
 The accomplishments made by Tua explains the reasons for the way he outperforms the other quarterbacks on his team leading to him playing and starting in more games and the reason for his numbers to be higher despite him being the youngest quarterback on his roster. Men lie, women lie, but numbers do not. These numbers show us that Tua is the best quarterback for the Miami Dolphins and his impact on the team is a positive one. This is understandable, as without Tua there would have not been such a major impact made by the team.
 
+### Case 2:
+
+In the case of the NBA, one can mention a lot of greats such as Kobe Bryant, Michael Jordan, Kareem Abdul-Jabbar, and Bill Russell to name a few. However, when you think of someone who revolutionized the point guard position and the way the sport is played in this position, one can mention Steve Nash. 
+
+We will focus our attention on Steve Nash to show how he after being traded to the Phoenix Suns from the Dallas Mavericks, he helped improve the team.
+
+#### Figure 1 : Phoenix Suns Wins & Losses (2003-04) (year prior to acquiring Steve Nash)
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# load packages
+library(dplyr)
+library(rvest)
+library(ggplot2)
+library(readr)
+library(tidyr)
+### Scraping
+# Scraping for Phoenix Suns 2003 - 2004 data
+phoenixSuns2003 <- read_html(
+  x = "https://www.landofbasketball.com/results_by_team/2003_2004_suns.htm"
+) %>%
+  html_elements(css = "table") %>%
+  html_table()
+
+## Getting correct table from data
+phoenixSunsStats <- phoenixSuns2003[[1]]
+
+## Removing unwanted / problematic rows
+phoenixSunsStats <- phoenixSunsStats[-32,]
+phoenixSunsStats <- phoenixSunsStats[-62,]
+phoenixSunsStats <- phoenixSunsStats[-1,]
+
+## Changing Game values from character to numeric
+phoenixSunsStats[[1]] <- as.numeric(as.character(phoenixSunsStats[[1]]))
+
+## Making a new data frame
+phoenixSunsStats <- bind_cols(phoenixSunsStats[[1]], phoenixSunsStats[[6]])
+phoenixSunsStats <- phoenixSunsStats
+colnames(phoenixSunsStats) <- c("Game", "Outcome")
+
+## Making ggplot visualization
+ggplot(phoenixSunsStats) +
+  aes(x = Outcome, y = Game) +
+  geom_point(shape = "diamond", size = 1.0, colour = "darkorange2") +
+  scale_y_continuous(breaks = seq(ceiling(min(1)), floor(max(82)), by = 2)) +
+  theme_minimal() +
+  labs(title = "Phoenix Suns Win/Loss record before acquiring Steve Nash")
+```
+
+As you can see from the data visualization, in the 2003-04 season, the Phoenix Suns lost more consistently than they won which resulted in them ending the season with a record of 29-53 and finishing 6th in the NBA Pacific Division and 13th in the Western Conference.
+
+#### Figure 2 : Phoenix Suns Wins & Losses (2004-05) (With Steve Nash)
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# load packages
+library(dplyr)
+library(rvest)
+library(ggplot2)
+library(readr)
+library(tidyr)
+### Scraping
+# Scraping for Phoenix Suns 2004 - 2005 data
+phoenixSuns2004 <- read_html(
+  x = "https://www.landofbasketball.com/results_by_team/2004_2005_suns.htm"
+) %>%
+  html_elements(css = "table") %>%
+  html_table()
+
+## Getting correct table from data
+phoenixSunsStats <- phoenixSuns2004[[1]]
+
+## Removing unwanted / problematic rows
+phoenixSunsStats <- phoenixSunsStats[-32,]
+phoenixSunsStats <- phoenixSunsStats[-62,]
+phoenixSunsStats <- phoenixSunsStats[-1,]
+
+## Changing Game values from character to numeric
+phoenixSunsStats[[1]] <- as.numeric(as.character(phoenixSunsStats[[1]]))
+
+## Making a new data frame
+phoenixSunsStats <- bind_cols(phoenixSunsStats[[1]], phoenixSunsStats[[6]])
+phoenixSunsStats <- phoenixSunsStats
+colnames(phoenixSunsStats) <- c("Game", "Outcome")
+
+## Making ggplot visualization
+ggplot(phoenixSunsStats) +
+  aes(x = Outcome, y = Game) +
+  geom_point(shape = "diamond", size = 1.0, colour = "darkorange2") +
+  scale_y_continuous(breaks = seq(ceiling(min(1)), floor(max(82)), by = 2)) +
+  theme_minimal() +
+  labs(title = "Phoenix Suns Win/Loss record after acquiring Steve Nash")
+```
+
+With the acquisition of Steve Nash, Steve Nash would lead the Phoenix Suns to have 33 more wins than the year before. They ended the 2004-05 season with a 62-20 record and becoming 1st in the Western Conference. With the winning record, the team makes it all the way to the Western Conference finals but lost and had a playoff record of 9-6. 
+
+# Final Thoughts
+
+Many sports require a team of more than one player to operate together to achieve a goal. I am certain that despite the acquisition of Tua Tagovailoa and Steve Nash to their teams did have a positive impact on the team, the teams overall success would not have been possible if it was a one-man team. 
+
+The team sports serve to show the effects of collaboration in the world and that when players from different backgrounds, cultures and ideologies come together with one goal in mind, they can be winners.
+
